@@ -1,6 +1,6 @@
 {
   // One Worker: serves public/ (the app) and answers /api/* (the backend), plus the daily debt cron.
-  "name": "khotat",
+  "name": "khotat-cloudflare",
   "main": "src/worker.js",
   "compatibility_date": "2026-06-01",
   "assets": {
