@@ -1,0 +1,17 @@
+{
+  // One Worker: serves public/ (the app) and answers /api/* (the backend), plus the daily debt cron.
+  "name": "khotat",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-06-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  // 13:00 UTC = 4:00 PM in Riyadh: every ungraded lesson that is due becomes a debt.
+  "triggers": { "crons": ["0 13 * * *"] },
+  "observability": { "enabled": true }
+  // Secrets (never put them in this file): SUPABASE_URL, SUPABASE_SERVICE_KEY, SESSION_SECRET, SHEIKH_PASSWORD.
+  // See docs/SETUP.md.
+}
